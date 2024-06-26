@@ -1,8 +1,8 @@
 import css from './Contact.module.css'
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contactsSlice";
+import { deleteContact } from "../../redux/contactsOps";
 
-export default function Contact ({id, name, phone}) {
+export default function Contact ({ contact: { id, name, number } }) {
     const dispatch = useDispatch();
     
     const handleDelete = () => {
@@ -14,7 +14,7 @@ export default function Contact ({id, name, phone}) {
         <div className={css.contactWrapper}>
             <div className={css.contactInfo}>
                 <p className={css.contactName}>{name}</p>
-                <p className={css.contactNumber}>{phone}</p>
+                <p className={css.contactNumber}>{number}</p>
             </div>
             <button type='button' className={css.contactBtn} onClick={handleDelete}>Delete</button>
         </div>
